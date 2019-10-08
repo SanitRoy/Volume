@@ -1,5 +1,32 @@
 from tkinter import *
 from tkinter.ttk import*
+
+def cal():
+    a=float(Entry.get(input))
+    b=float(Entry.get(input1))
+    c=float(Entry.get(input2))
+    x=Combobox.get(combo)
+    y=Combobox.get(combo1)
+    z=Combobox.get(combo2)
+    if x=="Inch":
+        a=a/12
+    elif x=="Milimeter":
+        a=a/304.8
+    if y=="Inch":
+        b=b/12
+    elif y=="Milimeter":
+        b=b/304.8
+    if z=="Inch":
+        c=c/12
+    elif z=="Milimeter":
+        c=c/304.8
+    vol=a*b*c
+    Entry.insert(output,0,vol)
+
+
+def clear():
+    Entry.delete(output,0, 'end')
+
 window = Tk()
 window.geometry("500x350")
 window.resizable(0,0)
@@ -15,10 +42,12 @@ label.pack()
 f2=Frame(window,width=500,height=300)
 f2.pack()
 #creating entries
-l1=Label(f2,text="Display",font=("Calibri",20))
+l1=Label(f2,text="Volume",font=("Calibri",20))
 l1.grid(column=1,row=0)
 output=Entry(f2,width=30)
 output.grid(column=1,row=1)
+b1=Button(f2,text='Clear',command=clear)
+b1.grid(column=2,row=1)
 
 s=Label(f2,text=" ")
 s.grid()
@@ -61,6 +90,8 @@ s3.grid()
 s4=Label(f2,text=" ")
 s4.grid()
 
-b=Button(f2,text="Submit")
+b=Button(f2,text="Submit",command=cal)
 b.grid(column=1,row=10)
+
+
 window.mainloop()
