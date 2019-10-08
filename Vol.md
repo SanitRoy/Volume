@@ -47,7 +47,7 @@ input1.grid(column=2,row=5)
 s2=Label(f2,text=" ")
 s2.grid()
 
-l3=Label(f2,text="Enter Length")
+l3=Label(f2,text="Enter section width")
 l3.grid(column=0,row=7)
 combo2=Combobox(f2)
 combo2['values']=("Feet","Inch","Milimeter")
